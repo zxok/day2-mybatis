@@ -1,2 +1,13 @@
 # Project exclude paths
 /target/
+.idea/.gitignore
+.idea/MyBatisCodeHelperDatasource.xml
+.idea/compiler.xml
+.idea/dataSources.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+day2-mybatis.iml
+

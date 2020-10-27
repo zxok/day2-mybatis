@@ -31,4 +31,13 @@ public class TestMinHomework {
         System.out.println(userAddressList);
     }
 
+    @Test
+    public void insertUserAddressTest() {
+        UserAddressMapper addressMapper = sqlSession.getMapper(UserAddressMapper.class);
+        UserAddress userAddress = new UserAddress(
+                1,"咖啡","18378166669","广西","南宁","江南区","233号");
+        int insert = addressMapper.insertUserAddress(userAddress);
+        System.out.println(insert);
+    }
+
 }

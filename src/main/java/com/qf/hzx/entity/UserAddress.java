@@ -46,6 +46,19 @@ public class UserAddress {
      */
     private Integer isDel;
 
+    public UserAddress() {
+    }
+
+    public UserAddress(Integer uId, String name, String phone, String provinces, String city, String region, String detailedAddress) {
+        this.uId = uId;
+        this.name = name;
+        this.phone = phone;
+        this.provinces = provinces;
+        this.city = city;
+        this.region = region;
+        this.detailedAddress = detailedAddress;
+    }
+
     @Override
     public String toString() {
         return "UserAddressMapper{" +

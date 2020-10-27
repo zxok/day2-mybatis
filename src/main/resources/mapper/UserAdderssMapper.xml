@@ -18,7 +18,13 @@
         SELECT id, u_id, name, phone, provinces, city, region, detailed_address
         FROM user_address
         WHERE is_del=0 AND u_id = #{uid};
-</select>
+    </select>
+
+    <insert id="insertUserAddress">
+        INSERT INTO user_address(u_id, name, phone, provinces, city, region, detailed_address)
+        VALUES (#{address.uId},#{address.name},#{address.phone},#{address.provinces},
+                #{address.city},#{address.region},#{address.detailedAddress});
+    </insert>
 
    
 </mapper>
