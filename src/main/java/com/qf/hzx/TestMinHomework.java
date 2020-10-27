@@ -1,7 +1,9 @@
 package com.qf.hzx;
 
 import com.qf.hzx.entity.Order;
+import com.qf.hzx.entity.UserAddress;
 import com.qf.hzx.mapper.OrderMapper;
+import com.qf.hzx.mapper.UserAddressMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -23,17 +25,10 @@ public class TestMinHomework {
     SqlSession sqlSession = ssf.openSession(true);
 
     @Test
-    public void selectByOrderNoTest() {
-        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-        Order order = orderMapper.selectByNo(10001);
-        System.out.println(order);
-    }
-
-    @Test
-    public void selectByUserIdTest() {
-        OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
-        List<Order> orders = orderMapper.selectByUserIdList(1);
-        System.out.println(orders);
+    public void selectUserAddressByUserIdTest() {
+        UserAddressMapper addressMapper = sqlSession.getMapper(UserAddressMapper.class);
+        List<UserAddress> userAddressList = addressMapper.selectUserAddressByUserId(1);
+        System.out.println(userAddressList);
     }
 
 }

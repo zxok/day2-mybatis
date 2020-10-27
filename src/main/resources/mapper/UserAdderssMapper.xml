@@ -11,9 +11,14 @@
         <result property="provinces" column="provinces"/>
         <result property="city" column="city"/>
         <result property="region" column="region"/>
-        <result property="detailedAddress" column="detailed_Address"/>
+        <result property="detailedAddress" column="detailed_address"/>
     </resultMap>
 
+    <select id="selectUserAddressByUserId" resultMap="BaseMap">
+        SELECT id, u_id, name, phone, provinces, city, region, detailed_address
+        FROM user_address
+        WHERE is_del=0 AND u_id = #{uid};
+</select>
 
    
 </mapper>
