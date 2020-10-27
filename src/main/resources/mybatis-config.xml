@@ -55,6 +55,8 @@
         <mapper resource="mapper/OrderItemMapper.xml"></mapper>
         <mapper resource="mapper/UserMapper.xml"></mapper>
         <mapper resource="mapper/UserAdderssMapper.xml"></mapper>
+        <mapper resource="mapper/PrivilegeMapper.xml"></mapper>
+        <mapper resource="mapper/RolesMapper.xml"></mapper>
     </mappers>
 
 </configuration>

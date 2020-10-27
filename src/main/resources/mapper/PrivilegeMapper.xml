@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.hzx.mapper.PrivilegeMapper">
+   <resultMap id="BaseMap" type="Privilege">
+        <id property="pId" column="p_id"/>
+        <result property="pName" column="p_name"/>
+        <result property="declare" column="declare"/>
+</resultMap>
+</mapper>

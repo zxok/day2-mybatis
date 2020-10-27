@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.hzx.mapper.RolesMapper">
+
+    <resultMap id="BaseMap" type="Roles" >
+        <id property="rId" column="r_id"/>
+        <result property="rName" column="r_name"/>
+        <result property="declare" column="declare"/>
+    </resultMap>
+
+    <resultMap id="collectionMap" type="Roles" extends="BaseMap">
+        <collection property="privileges" resultMap="com.qf.hzx.mapper.PrivilegeMapper.BaseMap"/>
+</resultMap>
+
+    <select id="selectByUserId" resultMap="collectionMap">
+        SELECT *
+        FROM roles r LEFT JOIN roles_permissions_relation rpr ON r.r_id = rpr.r_id
+            LEFT JOIN privilege p ON rpr.p_id = p.p_id
+        WHERE u_id = #{uid}
+    </select>
+   
+</mapper>

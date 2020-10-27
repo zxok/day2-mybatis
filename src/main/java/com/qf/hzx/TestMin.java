@@ -1,7 +1,9 @@
 package com.qf.hzx;
 
 import com.qf.hzx.entity.Order;
+import com.qf.hzx.entity.Roles;
 import com.qf.hzx.mapper.OrderMapper;
+import com.qf.hzx.mapper.RolesMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -35,6 +37,14 @@ public class TestMin {
         OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);
         List<Order> orders = orderMapper.selectByUserIdList(1);
         System.out.println(orders);
+    }
+
+    //多对多
+    @Test
+    public void selectByUserIdTest2() {
+        RolesMapper rolesMapper = sqlSession.getMapper(RolesMapper.class);
+        Roles roles = rolesMapper.selectByUserId(1);
+        System.out.println(roles);
     }
 
 }
