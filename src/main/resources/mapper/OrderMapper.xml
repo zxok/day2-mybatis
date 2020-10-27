@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.hzx.mapper.OrderMapper">
+    <resultMap id="baseResultMap" type="Order">
+        <id property="oId" column="o_id"/>
+        <result property="uId" column="u_id"/>
+        <result property="oNo" column="o_no"/>
+        <result property="createDate" column="create_Date"/>
+    </resultMap>
+
+    <!-- 一对一 -->
+    <resultMap id="AssMap" type="Order" extends="baseResultMap">
+        <association property="user" resultMap="com.qf.hzx.mapper.UserMapper.BaseMap"/>
+    </resultMap>
+
+    <!-- 一对多 -->
+    <resultMap id="collMap" type="Order" extends="baseResultMap">
+        <collection property="orderItemsList" resultMap="com.qf.hzx.mapper.OrderItemMapper.BaseMap"/>
+    </resultMap>
+
+    <select id="selectByNo" resultMap="AssMap">
+        SELECT *
+        FROM `order` o LEFT JOIN user u
+        ON o.u_id = u.u_id
+        WHERE o_no = #{no};
+    </select>
+
+    <select id="selectByUserIdList" resultMap="collMap">
+        SELECT o.o_id, o.o_no, o.create_date, o.u_id, oi.id, oi.o_no, oi.oi_name, oi.oi_img, oi.oi_size
+        FROM `order` o LEFT JOIN order_item oi
+        ON o.o_id = oi.o_id
+        WHERE o.u_id = #{uid};
+    </select>
+   
+</mapper>

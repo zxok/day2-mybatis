@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qf.hzx.mapper.OrderItemMapper">
+    <resultMap id="BaseMap" type="com.qf.hzx.entity.OrderItem">
+        <id property="id" column="id"/>
+        <result property="oId" column="o_id"/>
+        <result property="oNo" column="o_no"/>
+        <result property="oiName" column="oi_name"/>
+        <result property="oiImg" column="oi_img"/>
+        <result property="oiSize" column="oi_size"/>
+</resultMap>
+   
+</mapper>
