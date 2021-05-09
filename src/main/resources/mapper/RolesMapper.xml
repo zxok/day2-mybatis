@@ -11,9 +11,17 @@
 
     <resultMap id="collectionMap" type="Roles" extends="BaseMap">
         <collection property="privileges" resultMap="com.qf.hzx.mapper.PrivilegeMapper.BaseMap"/>
-</resultMap>
+    </resultMap>
 
+    <!-- 连表查询-多对多 -->
     <select id="selectByUserId" resultMap="collectionMap">
+        SELECT *
+        FROM roles r LEFT JOIN roles_permissions_relation rpr ON r.r_id = rpr.r_id
+            LEFT JOIN privilege p ON rpr.p_id = p.p_id
+        WHERE u_id = #{uid}
+    </select>
+
+    <select id="selectListByUserId" resultMap="collectionMap">
         SELECT *
         FROM roles r LEFT JOIN roles_permissions_relation rpr ON r.r_id = rpr.r_id
             LEFT JOIN privilege p ON rpr.p_id = p.p_id

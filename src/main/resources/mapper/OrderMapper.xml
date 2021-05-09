@@ -30,7 +30,7 @@
         SELECT o.o_id, o.o_no, o.create_date, o.u_id, oi.id, oi.o_no, oi.oi_name, oi.oi_img, oi.oi_size
         FROM `order` o LEFT JOIN order_item oi
         ON o.o_id = oi.o_id
-        WHERE o.u_id = #{uid};
+
     </select>
    
 </mapper>

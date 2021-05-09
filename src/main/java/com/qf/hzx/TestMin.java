@@ -46,5 +46,11 @@ public class TestMin {
         Roles roles = rolesMapper.selectByUserId(1);
         System.out.println(roles);
     }
+    @Test
+    public void selectListByUserIdTest2() {
+        RolesMapper rolesMapper = sqlSession.getMapper(RolesMapper.class);
+        List<Roles> rolesList = rolesMapper.selectListByUserId(1);
+        System.out.println(rolesList);
+    }
 
 }
